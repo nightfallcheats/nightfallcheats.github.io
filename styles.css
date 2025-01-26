@@ -1,0 +1,464 @@
+/* General reset for margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles for body and font */
+body {
+    background-color: #0f0d12; /* Deep dark color */
+    color: #fff;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Wrapper for centering the content */
+.wrapper {
+    max-width: 1200px;
+    width: 100%;
+    padding: 30px;
+}
+
+/* Flexbox layout for the content and image */
+.container {
+    display: flex;
+    justify-content: flex-start; /* Shift container content to the left */
+    align-items: center;
+    padding: 50px;
+    border-radius: 20px;
+    background: #0f0d12; /* Background matching rgb(15, 13, 18) */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    transform: scale(0.98);
+    transition: transform 0.3s ease-in-out;
+    animation: fadeInContainer 1.5s ease-in-out;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+/* Hover effect for the container */
+.container:hover {
+    transform: scale(1);
+}
+
+/* Content styling */
+.content {
+    flex: 1;
+    max-width: 500px;
+    margin-right: 30px;
+    animation: fadeInText 2s ease-out;
+}
+
+.content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: #fff;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+    transition: color 0.3s ease-in-out;
+}
+
+.content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #b0b0b0;
+    transition: color 0.3s ease-in-out;
+}
+
+.content:hover h1 {
+    color: rgb(81, 79, 87);  /* Accent color change on hover */
+}
+
+.content:hover p {
+    color: #f2f2f2;
+}
+
+/* Image styling */
+.image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideInImage 1s ease-out forwards;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    transform: translateX(100px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.image img.loaded {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Image panel styling (larger and shifted to the side) */
+.image-panel {
+    width: 500px; /* Adjusted width */
+    height: 350px; /* Adjusted height */
+    background-color: rgb(81, 79, 87); /* Panel color */
+    border-radius: 15px;
+    margin-left: 50px; /* Shift panel more to the right */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.image-panel img {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* New Features Section */
+.features {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.feature-item {
+    background-color: #0f0d12; /* Dark background */
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    width: 45%;
+    display: flex;
+    margin-bottom: 30px;
+    flex-direction: column;
+}
+
+.feature-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(81, 79, 87); /* Feature panel color */
+    border-radius: 15px 15px 0 0;
+}
+
+.feature-image img {
+    width: 80%;
+    border-radius: 10px;
+}
+
+.feature-content {
+    padding: 20px;
+    color: #fff;
+}
+
+.feature-content h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.feature-content p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.feature-button {
+    padding: 10px 20px;
+    background-color: rgb(81, 79, 87);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.feature-button:hover {
+    background-color: #a1a1a1;
+}
+
+/* Animations */
+@keyframes fadeInContainer {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInImage {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Feature Item Layout (with icon to the left) */
+.feature-item {
+    background-color: #0f0d12; /* Dark background */
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    width: 45%;
+    display: flex; /* Use flexbox to align items horizontally */
+    margin-bottom: 30px;
+    flex-direction: row; /* Default is row, but specify it for clarity */
+    align-items: center; /* Vertically center the content */
+    padding: 20px;
+}
+
+/* Adjust the icon section */
+.feature-image {
+    width: 50px; /* Set a fixed width for the icon */
+    height: 50px; /* Set a fixed height for the icon */
+    background-color: rgb(81, 79, 87); /* Background color for the icon area */
+    border-radius: 8px; /* Reduced the border-radius to make it less rounded */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px; /* Add space between icon and text */
+}
+
+/* Icon image (or SVG) size adjustments */
+.feature-image img,
+.feature-image svg {
+    width: 30px; /* Adjust icon size */
+    height: 30px; /* Adjust icon size */
+}
+
+/* Text content styling */
+.feature-content {
+    flex: 1; /* Allow the content to take up remaining space */
+    color: #fff;
+}
+
+.feature-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.feature-content p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Image Hover Effect */
+.feature-image img:hover {
+    transform: scale(1.1); /* Zoom in effect */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Modal background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Feature Item Layout (main panel) */
+.feature-item {
+    display: flex;
+    justify-content: space-between; /* Ensures space between text and image */
+    align-items: center;
+    background-color: #0f0d12;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+/* Adjust the image container */
+.feature-image {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(81, 79, 87);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto; /* Pushes the image to the right corner */
+}
+/* Modal content */
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #0f0d12;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: rgb(81, 79, 87);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #a1a1a1;
+}
+
+/* Card Layout for Features */
+.feature-item {
+    background-color: #1a171e;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(81, 79, 87);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f0d12;
+}
+
+/* Button Hover Effect */
+.action-button:hover {
+    background-color: rgb(120, 118, 126); /* Slightly lighter shade */
+    transform: scale(1.05); /* Slight scaling effect */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Text Hover Effect */
+.content h1:hover {
+    color: rgb(81, 79, 87);  /* Accent color */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Fade-in Effect on Scroll */
+@keyframes fadeInOnScroll {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-item {
+    opacity: 0;
+    animation: fadeInOnScroll 1s forwards;
+}
+
+.feature-item.visible {
+    opacity: 1;
+}
+
+/* Parallax Effect for Background Image */
+.parallax {
+    background-image: url('https://classic.systemspace.network/res/img/error/misc/s1.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+.feature-button {
+    padding: 10px 20px;
+    background-color: rgb(81, 79, 87);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.feature-button:hover {
+    background-color: #a1a1a1;
+}
+/* Styling for the "Learn More" button */
+.action-button {
+    padding: 15px 30px;
+    background-color: rgb(81, 79, 87); /* Button color */
+    color: #fff;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effect for the button */
+.action-button:hover {
+    background-color: #a1a1a1;
+}
