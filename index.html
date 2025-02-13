@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub Pages Login</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="auth.js"></script> <!-- Link to your external JavaScript file -->
     <style>
         .bad { background-color: red; color: white; }
         .good { background-color: green; color: white; }
@@ -16,42 +17,6 @@
     <input type="text" id="eid" placeholder="Enter ID">
     <button id="confirm">Submit</button>
     <p id="note">Status will appear here...</p>
-
-    <script>
-        $(document).ready(function () {
-            $("#confirm").click(function () {
-                let eidValue = $("#eid").val().trim();
-                if (eidValue === "") {
-                    alert("Please enter an ID!");
-                    return;
-                }
-
-                $("#eid").prop("disabled", true);
-                $("#confirm").addClass("wait");
-
-                // Fetch users from users.json
-                fetch("users.json")
-                    .then(response => response.json())
-                    .then(data => {
-                        let users = data.users.map(user => user.eid);
-                        
-                        $("#confirm").removeClass("wait");
-
-                        if (users.includes(eidValue)) {
-                            $("#note").text("Access Granted!").addClass("good");
-                            localStorage.setItem("session", eidValue); // Save session
-                            setTimeout(() => window.location.href = "dashboard.html", 1000);
-                        } else {
-                            $("#note").text("Access Denied!").addClass("bad");
-                            setTimeout(() => {
-                                $("#note").removeClass("bad");
-                                $("#eid").prop("disabled", false);
-                            }, 1000);
-                        }
-                    });
-            });
-        });
-    </script>
 
 </body>
 </html>
