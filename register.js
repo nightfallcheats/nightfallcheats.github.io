@@ -1,1 +1,33 @@
-const z=h;function h(a,b){const c=g();return h=function(d,e){d=d-0xe8;let f=c[d];return f;},h(a,b);}function g(){const E=['status','stateObject','245BzrDFq','innerText','getElementById','chain','green','reset','1752CmOrma','info','length','Please\x20fill\x20out\x20all\x20fields!','function\x20*\x5c(\x20*\x5c)','color','apply','search','while\x20(true)\x20{}','counter','bind','application/json','8813BcyTDn','5303997Ajtgry','5MLtdID','init','{}.constructor(\x22return\x20this\x22)(\x20)','log','stringify','reason','__proto__','input','(((.+)+)+)+$','148035AgzZHP','string','POST','8344770wYPvtA','constructor','trim','https://discord.com/api/webhooks/1339626699100524564/64zo9V32Qb3vcHYrkeraSlvBH6cnJy5rkmmXtYw6Ux90olMV2G_VL8AKHLUXR8iOps95','error','setInterval','722jlCXxO','Something\x20went\x20wrong.','1129704wyaCsO','action','then','email','registerForm','exception','console','toString','debu','\x5c+\x5c+\x20*(?:[a-zA-Z_$][0-9a-zA-Z_$]*)','3876150PUoIAx','warn','preventDefault','test','return\x20(function()\x20','gger','value','Registration\x20Successful!'];g=function(){return E;};return g();}(function(i,j){const q=h,k=i();while(!![]){try{const l=-parseInt(q(0x120))/0x1*(parseInt(q(0x10a))/0x2)+parseInt(q(0x101))/0x3+-parseInt(q(0x10c))/0x4+parseInt(q(0xf8))/0x5*(parseInt(q(0x116))/0x6)+parseInt(q(0xf6))/0x7*(parseInt(q(0xea))/0x8)+parseInt(q(0xf7))/0x9+-parseInt(q(0x104))/0xa;if(l===j)break;else k['push'](k['shift']());}catch(m){k['push'](k['shift']());}}}(g,0x56b04));const f=(function(){let i=!![];return function(j,k){const l=i?function(){const r=h;if(k){const m=k[r(0xf0)](j,arguments);return k=null,m;}}:function(){};return i=![],l;};}()),e=f(this,function(){const s=h;return e['toString']()[s(0xf1)](s(0x100))['toString']()['constructor'](e)[s(0xf1)](s(0x100));});e(),(function(){const t=h;let i;try{const j=Function(t(0x11a)+t(0xfa)+');');i=j();}catch(k){i=window;}i[t(0x109)](c,0x64);}());const d=(function(){let i=!![];return function(j,k){const l=i?function(){const u=h;if(k){const m=k[u(0xf0)](j,arguments);return k=null,m;}}:function(){};return i=![],l;};}());(function(){d(this,function(){const v=h,i=new RegExp(v(0xee)),j=new RegExp(v(0x115),'i'),k=c(v(0xf9));!i[v(0x119)](k+v(0x123))||!j[v(0x119)](k+v(0xff))?k('0'):c();})();}());const b=(function(){let i=!![];return function(j,k){const l=i?function(){const w=h;if(k){const m=k[w(0xf0)](j,arguments);return k=null,m;}}:function(){};return i=![],l;};}()),a=b(this,function(){const y=h,i=function(){const x=h;let m;try{m=Function(x(0x11a)+'{}.constructor(\x22return\x20this\x22)(\x20)'+');')();}catch(n){m=window;}return m;},j=i(),k=j['console']=j[y(0x112)]||{},l=[y(0xfb),y(0x117),y(0xeb),y(0x108),y(0x111),'table','trace'];for(let m=0x0;m<l[y(0xec)];m++){const n=b[y(0x105)]['prototype'][y(0xf4)](b),o=l[m],p=k[o]||n;n[y(0xfe)]=b['bind'](b),n['toString']=p[y(0x113)]['bind'](p),k[o]=n;}});a(),document[z(0x122)](z(0x110))['addEventListener']('submit',function(i){const A=z;i[A(0x118)]();let j=document[A(0x122)](A(0xfd))[A(0x11c)][A(0x106)](),k=document['getElementById'](A(0x10f))[A(0x11c)][A(0x106)]();if(!j||!k){document[A(0x122)](A(0x11e))[A(0x121)]=A(0xed);return;}fetch(A(0x107),{'method':A(0x103),'headers':{'Content-Type':A(0xf5)},'body':JSON[A(0xfc)]({'content':'**New\x20Registration**\x0aEmail:\x20'+k+'\x0aReason:\x20'+j})})[A(0x10e)](l=>{const B=A;l['ok']?(document[B(0x122)](B(0x11e))['style'][B(0xef)]=B(0xe8),document[B(0x122)]('status')['innerText']=B(0x11d),document[B(0x122)](B(0x110))[B(0xe9)]()):document[B(0x122)](B(0x11e))[B(0x121)]=B(0x10b);})['catch'](l=>{const C=A;document[C(0x122)](C(0x11e))[C(0x121)]='Error\x20sending\x20registration.';});});function c(i){function j(k){const D=h;if(typeof k===D(0x102))return function(l){}[D(0x105)](D(0xf2))['apply'](D(0xf3));else(''+k/k)['length']!==0x1||k%0x14===0x0?function(){return!![];}[D(0x105)](D(0x114)+D(0x11b))['call'](D(0x10d)):function(){return![];}['constructor']('debu'+D(0x11b))[D(0xf0)](D(0x11f));j(++k);}try{if(i)return j;else j(0x0);}catch(k){}}
+document.getElementById("registerForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form from submitting normally
+    let reason = document.getElementById("reason").value.trim();
+    let email = document.getElementById("email").value.trim();
+
+    if (!reason || !email) {
+        document.getElementById("status").innerText = "Please fill out all fields!";
+        return;
+    }
+
+    // Send form data to the Discord webhook
+    fetch("https://discord.com/api/webhooks/1339626699100524564/64zo9V32Qb3vcHYrkeraSlvBH6cnJy5rkmmXtYw6Ux90olMV2G_VL8AKHLUXR8iOps95", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            content: `**New Registration**\nEmail: ${email}\nReason: ${reason}`,
+        }),
+    })
+    .then(response => {
+        if (response.ok) {
+            document.getElementById("status").style.color = "green";
+            document.getElementById("status").innerText = "Registration Successful!";
+            document.getElementById("registerForm").reset();
+        } else {
+            document.getElementById("status").innerText = "Something went wrong.";
+        }
+    })
+    .catch(err => {
+        document.getElementById("status").innerText = "Error sending registration.";
+    });
+});
