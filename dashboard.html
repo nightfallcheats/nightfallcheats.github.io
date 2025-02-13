@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script>
+        window.onload = function() {
+            let session = localStorage.getItem("session");
+            if (!session) {
+                window.location.href = "index.html"; // Redirect to login
+            } else {
+                document.getElementById("user-id").innerText = session;
+            }
+        };
+
+        function logout() {
+            localStorage.removeItem("session");
+            window.location.href = "index.html";
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome, <span id="user-id"></span>!</h1>
+    <button onclick="logout()">Logout</button>
+</body>
+</html>
